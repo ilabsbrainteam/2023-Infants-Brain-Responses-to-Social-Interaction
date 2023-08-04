@@ -1,0 +1,210 @@
+# Analysis parameters for processing pipeline in F2F_MNEFun_Main.ipynb #
+general:
+  subjects_dir: null
+  subject_indices: null
+
+fetch_raw:
+  subjects: ['f2f_107']
+  structurals: ['f2f_107']
+  dates: null
+  acq_ssh: localhost
+  acq_dir: /mnt/brainstudio/mmf/
+  run_names: ['%s']
+  runs_empty: ['%s_erm']
+  subject_run_indices: null
+
+scoring:
+  score: null
+  list_dir: lists_1sec
+
+preprocessing:
+  multithreading:
+    n_jobs: 1
+    n_jobs_fir: 1
+    n_jobs_resample: 1
+  bads:
+    mf_prebad: {
+      __default__: [],    # ERM in some 1st and 2nd lines below
+      f2f_009: ['MEG0313', 'MEG1023', 'MEG1043',
+                'MEG1321', 'MEG1442'],
+      f2f_010: ['MEG2113', 'MEG0733',
+                'MEG0422', 'MEG1321', 'MEG1442'],
+      f2f_011: ['MEG2113',
+                'MEG0142', 'MEG0422', 'MEG1321', 'MEG1442'],
+      f2f_012: ['MEG0422', 'MEG0933', 'MEG1321', 'MEG1521'],
+      f2f_013: ['MEG0733',
+                'MEG0142', 'MEG0422', 'MEG1442', 'MEG1321', 'MEG1521'],
+      f2f_014: ['MEG0142', 'MEG0422', 'MEG1321', 'MEG1442', 'MEG1522'],
+      f2f_015: ['MEG0142', 'MEG0422', 'MEG0331', 'MEG0933', 'MEG1442',
+                'MEG1321', 'MEG1521'],
+      f2f_018: ['MEG0413', 'MEG0422', 'MEG1442', 'MEG1321', 'MEG1521'],
+      f2f_021: ['MEG1113', 'MEG2113', 'MEG1321', 'MEG1521',
+                'MEG0413', 'MEG0422', 'MEG1442', 'MEG1842'],
+      f2f_022: ['MEG0733', 'MEG0933', 'MEG1321', 'MEG1521'],
+      f2f_024: ['MEG0422', 'MEG2613', 'MEG1321', 'MEG1521'],
+      f2f_025: ['MEG1543',
+                'MEG0142', 'MEG1523', 'MEG1321', 'MEG1521', 'MEG2121'],
+      f2f_025: ['MEG0422', 'MEG1442', 'MEG1321', 'MEG1521'],
+      f2f_027: ['MEG1523', 'MEG0142', 'MEG0422',
+                'MEG1321', 'MEG1521', 'MEG2121', 'MEG2441', 'MEG2611'],
+      f2f_028: ['MEG0331', 'MEG1523', 'MEG2611',
+                'MEG0142', 'MEG0422', 'MEG1321', 'MEG1521', 'MEG2121'],
+      f2f_029: ['MEG0142', 'MEG0413', 'MEG0422', 'MEG0933',
+                'MEG1321', 'MEG1521'],
+      f2f_030: ['MEG0413', 'MEG0422', 'MEG0743', 'MEG0933', 'MEG2532',
+                'MEG1321', 'MEG1521'],
+      f2f_034: ['MEG1223',
+                'MEG0422', 'MEG0743', 'MEG1442', 'MEG1321', 'MEG1521'],
+      f2f_036: ['MEG0713',
+                'MEG0422', 'MEG0743', 'MEG1442', 'MEG1321'],
+      f2f_037: ['MEG0422',
+                'MEG0142', 'MEG0743', 'MEG0933', 'MEG1442', 'MEG0611',
+                'MEG1321', 'MEG1521'],
+      f2f_038: ['MEG1432',
+                'MEG0142', 'MEG0422', 'MEG0743', 'MEG1442', 'MEG1321'],
+      f2f_041: [],
+      f2f_102: ['MEG1743', 'MEG2542',
+                'MEG0142', 'MEG0743', 'MEG1321', 'MEG1521'],
+      f2f_103: ['MEG0413', 'MEG1823', 'MEG1743',
+                'MEG0142', 'MEG0933', 'MEG2542', 'MEG1321', 'MEG1521'],
+      f2f_104: ['MEG1743', 'MEG2542',
+                'MEG0933', 'MEG1413', 'MEG1442', 'MEG1111',
+                'MEG1321', 'MEG1521'],
+      f2f_106: ['MEG1743', 'MEG1831',
+                'MEG0142', 'MEG0743', 'MEG2542', 'MEG1321', 'MEG1521'],
+      f2f_107: ['MEG0332', 'MEG1743', 'MEG2542',
+                'MEG0142', 'MEG0743', 'MEG0933', 'MEG1321', 'MEG1521'],
+      f2f_108: ['MEG1521', 'MEG1743', 'MEG2542',
+                'MEG0142', 'MEG0743', 'MEG1543', 'MEG2633',
+                'MEG1321', 'MEG1521'],
+      f2f_111: ['MEG1743',
+                'MEG0743', 'MEG2542', 'MEG1321'],
+      f2f_112: ['MEG1743',
+                'MEG0743', 'MEG1112', 'MEG1422', 'MEG2113',
+                'MEG2133', 'MEG2343', 'MEG2542', 'MEG1321'],
+      f2f_114: ['MEG1743',
+                'MEG0142', 'MEG0743', 'MEG1523', 'MEG2142',
+                'MEG1321', 'MEG2521'],
+      f2f_115: ['MEG0533','MEG1433', 'MEG1743',
+                'MEG0142', 'MEG0743', 'MEG0822', 'MEG2542', 'MEG1321'],
+      f2f_116: ['MEG1023', 'MEG1743',
+                'MEG0142', 'MEG1413', 'MEG1443', 'MEG2542',
+                'MEG1321', 'MEG1521'],
+      f2f_117: ['MEG0313', 'MEG1743', 'MEG2542',
+                'MEG0743', 'MEG1442', 'MEG1522', 'MEG1321',
+                'MEG1521', 'MEG2341'],
+      f2f_118: ['MEG1112', 'MEG1743',
+                'MEG2142', 'MEG2542', 'MEG2643', 'MEG1521', 'MEG1741'],
+      f2f_119: ['MEG0313', 'MEG1743',
+                'MEG2142', 'MEG2542', 'MEG2643', 'MEG1521', 'MEG1741',
+                'MEG2341'],
+      f2f_107sim2: ['MEG0332', 'MEG1743', 'MEG2542']
+      }
+    mf_autobad: True
+    mf_autobad_type: python
+  head_position_estimation:
+    coil_dist_limit: .005
+    coil_gof_limit: 0.98
+    coil_t_window: auto
+    coil_t_step_min: 0.1
+    movecomp: inter
+  annotations:
+    coil_bad_count_duration_limit: 0.5
+    rotation_limit: 10  # funloc uses 0.2
+    translation_limit: 0.1  # funloc uses .0001
+  sss:
+    sss_type: python
+    hp_type: python
+    filter_chpi: True
+    sss_regularize: in
+    int_order: 6
+    ext_order: 3
+    tsss_dur: 4.
+    st_correlation: 0.98
+    trans_to: twa
+    cont_hp: 25
+    cont_lp: 32
+    cont_hp_trans: 1.0
+    cont_lp_trans: 1.0
+    cont_as_esss: True
+    cont_reject: {'mag': 5.e-11, 'grad': 1.5e-9}
+  filtering:
+    lp_cut: 80.
+    lp_trans: 3.
+    filter_length: auto
+    fir_design: firwin
+    phase: zero
+  ssp:
+    proj_nums: {__default__: [[2, 2, 0], [0, 0, 0], [3, 3, 0]]}
+    proj_sfreq: 200
+    proj_meg: combined
+    eog_t_lims: [-0.25, 0.25]
+    ecg_t_lims: [-0.08, 0.08]
+    eog_f_lims: [1, 10]
+    ecg_f_lims: [5, 35]
+    proj_ave: True
+    get_projs_from: [0]
+    ssp_ecg_reject: null
+    ssp_eog_reject: null
+    ecg_channel: {
+        __default__: null, f2f_009: MEG0143,
+        f2f_010: MEG1713, f2f_024: MEG0113, f2f_030: MEG0143, f2f_036: MEG1711,
+        f2f_102: MEG1423, f2f_106: MEG1431, f2f_108: MEG1423
+        }
+epoching:
+  tmin: 0.0
+  tmax: 1.0
+  bmin: 0.0
+  bmax: 1.0
+  t_adjust: -4.e-3
+  baseline: individual
+  decim: 10
+  analyses: ['All', 'Each']
+  in_names: &in_names
+    - talk
+    - ignore
+  in_numbers: &in_numbers
+    - 23
+    - 25
+  out_names: [['All'], *in_names]
+  out_numbers: [[1, 1], [1, 2]]
+  must_match: [[], [0, 1]]
+  autoreject_thresholds: True
+  autoreject_types: ['mag', 'grad']
+  reject_epochs_by_annot: True
+  reject_tmin: null
+  reject_tmax: null
+  epochs_proj: delayed
+  epochs_prefix: All_1sec
+
+covariance:
+  cov_method: shrunk
+  compute_rank: True
+  cov_rank: null
+  force_erm_cov_rank_full: False
+
+forward:
+  bem_type: 5120
+  src: oct6
+  src_pos: 5
+  forward_dir: forward_surf
+  trans_dir: raw_fif
+
+inverse:
+  inv_names: ['%s']
+  inv_runs: [0]
+  inverse_dir: inverse_surf
+
+report:
+  bem: False
+  covariance: False
+  drop_log: True
+  source: False
+  bem: False
+  source_alignment: True
+  good_hpi_count: True
+  whitening: [
+    {analysis: Each, name: talk, cov: '%s-80-sss-cov.fif'},
+    {analysis: Each, name: ignore, cov: '%s-80-sss-cov.fif'}
+    ]
+  sensor: {analysis: All, name: All, times: [5, 10, 20, 40]}
